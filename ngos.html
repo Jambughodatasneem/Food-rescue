@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Management</title>
+
+    <link rel="stylesheet" href="../css/ngostyles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>NGO Management Dashboard</h1>
+        <p>Register and Manage Food Receiver Organizations</p>
+    </header>
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <h2 id="ngoCount">0</h2>
+            <p>Total NGOs</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>Food Rescue</h2>
+            <p>Management System</p>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Register NGO</h2>
+
+        <div class="form-grid">
+
+            <input type="text" id="ngoName" placeholder="NGO Name">
+
+            <input type="text" id="contactPerson" placeholder="Contact Person">
+
+            <input type="email" id="email" placeholder="Email">
+
+            <input type="text" id="phone" placeholder="Phone Number">
+
+            <input type="text" id="address" placeholder="Address">
+
+            <input type="text" id="requirement" placeholder="Food Requirement">
+
+        </div>
+
+        <button onclick="addNGO()">Register NGO</button>
+    
+
+    </div>
+
+    <div class="card">
+
+        <h2>Registered NGOs</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>NGO Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Requirement</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="ngoTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="../js/ngos.js"></script>
+
+</body>
+</html>

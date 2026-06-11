@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Management</title>
+    <link rel="stylesheet" href="../css/donationstyles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="dashboard-header">
+        <h1>🍽️ Donor Management Dashboard</h1>
+        <p>Manage Food Donors and Contributors</p>
+    </header>
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h2 id="totalDonors">0</h2>
+            <p>Total Donors</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="restaurantCount">0</h2>
+            <p>Restaurants</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="hotelCount">0</h2>
+            <p>Hotels</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="individualCount">0</h2>
+            <p>Individuals</p>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Register New Donor</h2>
+
+        <div class="form-grid">
+
+            <input type="text" id="donorName" placeholder="Donor Name">
+
+            <input type="text" id="organization" placeholder="Organization Name">
+
+            <input type="email" id="email" placeholder="Email">
+
+            <input type="text" id="phone" placeholder="Phone Number">
+
+            <input type="text" id="address" placeholder="Address">
+
+            <select id="donorType">
+                <option value="">Select Donor Type</option>
+                <option>Restaurant</option>
+                <option>Hotel</option>
+                <option>Catering Service</option>
+                <option>Bakery</option>
+                <option>Individual</option>
+                <option>Supermarket</option>
+            </select>
+
+        </div>
+
+       <button onclick="addDonor()">Register Donor</button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Registered Donors</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Donor</th>
+                    <th>Organization</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="donorTable"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="../js/donor.js"></script>
+
+</body>
+</html>
