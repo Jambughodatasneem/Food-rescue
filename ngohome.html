@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Dashboard</title>
+
+    <link rel="stylesheet" href="../css/ngohome.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <div class="logo-section">
+                <h1>🏢 NGO Dashboard</h1>
+                <p>Manage Food Requests & Allocations</p>
+            </div>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </header>
+
+        <div class="welcome-card">
+
+            <h2>
+                Welcome NGO 👋
+            </h2>
+
+            <p>
+                Request food, track allocations and help communities efficiently.
+            </p>
+
+        </div>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h1 id="totalRequests">0</h1>
+                <p>Food Requests</p>
+            </div>
+
+            <div class="stat-card">
+                <h1 id="allocatedFood">0</h1>
+                <p>Allocated Food</p>
+            </div>
+
+            <div class="stat-card">
+                <h1 id="notificationsCount">0</h1>
+                <p>Notifications</p>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">
+            NGO Services
+        </h2>
+
+        <div class="module-grid">
+
+            <a href="requests.html" class="module-card">
+                📋
+                <span>Request Food</span>
+            </a>
+
+            <a href="allocation.html" class="module-card">
+                🚚
+                <span>Track Allocation</span>
+            </a>
+
+            <a href="notifications.html" class="module-card">
+                🔔
+                <span>Notifications</span>
+            </a>
+            <a href="availablefood.html" class="module-card">
+        🍱
+                <span>Available Food</span>
+             </a>
+        </div>
+
+        <div class="activity-card">
+
+            <h2>Recent Activity</h2>
+
+            <ul id="activityList">
+
+                <li>No Activity Found</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script src="../js/ngohome.js"></script>
+
+</body>
+</html>

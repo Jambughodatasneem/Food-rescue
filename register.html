@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Register</title>
-
-<link rel="stylesheet" href="../css/styles.css">
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/authstyles.css">
 </head>
 <body>
 
@@ -14,49 +10,73 @@
 
     <div class="card">
 
-        <h1>Create Account</h1>
+        <div class="logo">
+            <h1>Food Rescue</h1>
+            <p>Create Account</p>
+        </div>
 
-        <input
-            type="text"
-            id="name"
-            placeholder="Full Name"
-        >
+        <div class="form-group">
+            <input type="text" id="fullName"
+            placeholder="Full Name">
+        </div>
 
-        <input
-            type="email"
-            id="email"
-            placeholder="Email Address"
-        >
+        <div class="form-group">
+            <input type="email" id="email"
+            placeholder="Email Address">
+        </div>
+        
+        <div class="form-group">
+            <input type="text" id="mobile"
+            placeholder="Mobile Number">
+        </div>
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Password"
-        >
+        <div class="form-group">
+            <select id="role">
+                <option value="">Select Role</option>
+                <option>Admin</option>
+                <option>Donor</option>
+                <option>NGO</option>
+            </select>
+        </div>
 
-        <input
-            type="password"
+        <div class="form-group">
+            <input type="password" id="password"
+            placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <input type="password"
             id="confirmPassword"
-            placeholder="Confirm Password"
-        >
+            placeholder="Confirm Password">
+        </div>
+
+        <div id="passwordMessage" class="error"></div>
 
         <button onclick="registerUser()">
             Register
         </button>
 
-        <div id="message"></div>
-
-        <p>
-            Already have an account?
-            <a href="../index.html">
-                Login
+        <div class="link">
+            <a href="login.html">
+                Already have an account?
             </a>
-        </p>
+        </div>
 
     </div>
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init({
+    publicKey: "3NMNF61P5Dmn8KIX5"
+});
+</script>
+
+
+
 <script src="../js/auth.js"></script>
+
 </body>
 </html>

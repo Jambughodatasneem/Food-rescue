@@ -52,10 +52,19 @@ function addDonor() {
 
     donors.push(donor);
 
-    localStorage.setItem(
-        "donors",
-        JSON.stringify(donors)
-    );
+    let notifications =
+    JSON.parse(localStorage.getItem("notifications")) || [];
+
+notifications.push({
+    id: Date.now(),
+    message: "👤 New Donor Registered: " + donorName,
+    date: new Date().toLocaleString()
+});
+
+localStorage.setItem(
+    "notifications",
+    JSON.stringify(notifications)
+);
 
     clearForm();
     displayDonors();

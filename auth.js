@@ -1,146 +1,168 @@
-// REGISTER
+// ===============================
+// REGISTER USER
+// ===============================
 
 function registerUser() {
 
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
+    let fullName =
+        document.getElementById("fullName").value.trim();
 
-    let message = document.getElementById("message");
+    let email =
+        document.getElementById("email").value.trim();
 
-    const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    let mobile =
+        document.getElementById("mobile").value.trim();
 
-    if(name === "" || email === "" || password === "" || confirmPassword === ""){
+    let role =
+        document.getElementById("role").value;
 
-        message.innerHTML =
-        "<p class='error'>All fields are required.</p>";
+    let password =
+        document.getElementById("password").value;
+
+    let confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    if (
+        fullName === "" ||
+        email === "" ||
+        mobile === "" ||
+        role === "" ||
+        password === "" ||
+        confirmPassword === ""
+    ) {
+        alert("Please Fill All Fields");
+        return;
+    }
+
+    let regex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if (!regex.test(password)) {
+
+        alert(
+            "Password must contain Uppercase, Lowercase, Number and Special Character"
+        );
 
         return;
     }
 
-    if(!passwordRegex.test(password)){
+    if (password !== confirmPassword) {
 
-        message.innerHTML =
-        "<p class='error'>Password must contain uppercase, lowercase, number and special character.</p>";
-
-        return;
-    }
-
-    if(password !== confirmPassword){
-
-        message.innerHTML =
-        "<p class='error'>Passwords do not match.</p>";
-
+        alert("Passwords Do Not Match");
         return;
     }
 
     let users =
-    JSON.parse(localStorage.getItem("users")) || [];
+        JSON.parse(localStorage.getItem("users")) || [];
 
     let existingUser =
-    users.find(user => user.email === email);
+        users.find(user => user.email === email);
 
-    if(existingUser){
+    if (existingUser) {
 
-        message.innerHTML =
-        "<p class='error'>Email already exists.</p>";
-
+        alert("Email Already Registered");
         return;
     }
 
-    const user = {
-        id: Date.now(),
-        name: name,
-        email: email,
-        password: password
-    };
+    users.push({
 
-    users.push(user);
+        id: Date.now(),
+
+        fullName,
+
+        email,
+
+        mobile,
+
+        role,
+
+        password
+
+    });
 
     localStorage.setItem(
         "users",
         JSON.stringify(users)
     );
 
-    message.innerHTML =
-    "<p class='success'>Registration Successful!</p>";
+    alert("Registration Successful");
 
-    setTimeout(() => {
-        window.location.href = "../index.html";
-    }, 1500);
+    window.location.href =
+        "login.html";
 }
 
 
-// LOGIN
+// ===============================
+// LOGIN USER
+// ===============================
 
 function loginUser() {
 
     let email =
-    document.getElementById("loginEmail").value.trim();
+        document.getElementById("loginEmail").value.trim();
 
     let password =
-    document.getElementById("loginPassword").value;
-
-    let message =
-    document.getElementById("message");
+        document.getElementById("loginPassword").value;
 
     let users =
-    JSON.parse(localStorage.getItem("users")) || [];
+        JSON.parse(localStorage.getItem("users")) || [];
 
     let user =
-    users.find(
-        u => u.email === email &&
-        u.password === password
-    );
-
-    if(user){
-
-        localStorage.setItem(
-            "loggedInUser",
-            JSON.stringify(user)
+        users.find(
+            u =>
+            u.email === email &&
+            u.password === password
         );
 
-        window.location.href =
-        "pages/dashboard.html";
+    if (!user) {
 
-    }else{
-
-        message.innerHTML =
-        "<p class='error'>Invalid Email or Password.</p>";
+        alert("Invalid Email or Password");
+        return;
     }
-}
 
-
-// DASHBOARD
-
-if(window.location.pathname.includes("dashboard.html")){
-
-    let user =
-    JSON.parse(
-        localStorage.getItem("loggedInUser")
+    localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify(user)
     );
 
-    if(!user){
+    alert("Login Successful");
+
+    if(user.role === "Admin") {
 
         window.location.href =
-        "../index.html";
+            "home.html";
 
-    }else{
+    }
+    else if(user.role === "Donor") {
 
-        document.getElementById("welcome").innerText =
-        "Welcome, " + user.name;
+        window.location.href =
+            "donorhome.html";
+
+    }
+    else if(user.role === "NGO") {
+
+        window.location.href =
+            "ngohome.html";
+
+    }
+    else {
+
+        alert("Invalid User Role");
+
     }
 }
 
 
+// ===============================
 // LOGOUT
+// ===============================
 
-function logout(){
+function logout() {
 
-    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem(
+        "loggedInUser"
+    );
 
     window.location.href =
-    "../index.html";
+        "login.html";
 }

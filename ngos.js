@@ -48,10 +48,19 @@ function addNGO() {
         requirement
     });
 
-    localStorage.setItem(
-        "ngos",
-        JSON.stringify(ngos)
-    );
+    let notifications =
+    JSON.parse(localStorage.getItem("notifications")) || [];
+
+notifications.push({
+    id: Date.now(),
+    message: "🏢 New NGO Registered: " + ngoName,
+    date: new Date().toLocaleString()
+});
+
+localStorage.setItem(
+    "notifications",
+    JSON.stringify(notifications)
+);
 
     displayNGOs();
 

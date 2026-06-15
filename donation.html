@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation Management</title>
+
+    <link rel="stylesheet" href="../css/donationsstyles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <h1>🍱 Food Donation Management</h1>
+        <p>Manage Food Donations Efficiently</p>
+    </header>
+
+    <div class="card">
+
+        <h2>Add New Donation</h2>
+
+        <div class="form-grid">
+
+            <input type="text" id="foodName" placeholder="Food Name">
+
+            <input type="number" id="quantity" placeholder="Quantity">
+
+            <input type="text" id="category" placeholder="Category">
+
+            <input type="text" id="address" placeholder="Pickup Address">
+
+            <input type="date" id="expiry">
+
+        </div>
+
+        <button onclick="addDonation()">
+            Add Donation
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Donation List</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Food Name</th>
+                    <th>Quantity</th>
+                    <th>Category</th>
+                    <th>Address</th>
+                    <th>Expiry Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="donationBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="../js/donations.js"></script>
+
+</body>
+</html>

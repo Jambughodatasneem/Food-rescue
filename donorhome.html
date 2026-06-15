@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Dashboard</title>
+
+    <link rel="stylesheet" href="../css/donorhome.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <div class="logo-section">
+                <h1>❤️ Donor Dashboard</h1>
+                <p>Help Reduce Food Waste & Feed Communities</p>
+            </div>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </header>
+
+        <div class="welcome-card">
+
+            <h2 id="welcomeMessage">
+                Welcome Donor 👋
+            </h2>
+
+            <p>
+                Thank you for helping people in need through food donations.
+            </p>
+
+        </div>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h1 id="myDonations">0</h1>
+                <p>My Donations</p>
+            </div>
+
+            <div class="stat-card">
+                <h1 id="foodItems">0</h1>
+                <p>Food Items Donated</p>
+            </div>
+
+            <div class="stat-card">
+                <h1 id="notificationsCount">0</h1>
+                <p>Notifications</p>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">
+            Donor Services
+        </h2>
+
+        <div class="module-grid">
+
+            <a href="donation.html" class="module-card">
+                🍱
+                <span>Add Donation</span>
+            </a>
+
+            <a href="donation.html" class="module-card">
+                📜
+                <span>My Donations</span>
+            </a>
+
+            <a href="notifications.html" class="module-card">
+                🔔
+                <span>Notifications</span>
+            </a>
+        </div>
+
+        <div class="activity-card">
+
+            <h2>Recent Activity</h2>
+
+            <ul id="activityList">
+
+                <li>No Activity Found</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script src="../js/donorhome.js"></script>
+
+</body>
+
+</html>
